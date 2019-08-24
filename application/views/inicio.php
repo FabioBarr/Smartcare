@@ -1,9 +1,11 @@
 
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     function refresh_div() {
     $(function(){
-       $("#list1").load("http://localhost:8888/smartcare/");
+       $("#list1").load("<?php echo base_url(); ?>");
     });
     }
 
