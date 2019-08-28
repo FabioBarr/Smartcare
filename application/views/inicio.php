@@ -17,8 +17,24 @@
 
 foreach($Dados as $infoDados){
     echo '
-    <div>'.$infoDados->Nome.'</div>
-    <div>'.$infoDados->Idade.'</div>';
+    <div>Paciente: '.$infoDados->Paciente.'</div>
+    <div>Idade: '.$infoDados->Idade.'</div>
+    <div>Ambiente: '.$infoDados->Ambiente.'</div>
+    <div>Código do Sensor: '.$infoDados->idSensor.'</div>
+    <div>Status do Sensor: ';
+    if($infoDados->Status)
+        echo
+            'Em funcionamento';
+    else
+        echo
+            'Desligado';
+    echo '
+    </div>
+    <div>Ativado em: '.$infoDados->AtivadoEm.'</div>
+    <div>Desativado em'.$infoDados->DesativadoEm.'</div>
+    <div>Leitura: '.$infoDados->Leitura.'</div>
+
+    ';
 }
 
 ?>
