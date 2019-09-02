@@ -5,16 +5,19 @@ class Entrada extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-        //$this->load->model('refresh_model');
+        $this->load->model('refresh_model');
     }
 
 	public function index()
 	{
+
 		$data = array(
-			'Nome' => $this->input->post('Nome'),
-			'Leitura' => $this->input->post('Nome'),
+			'id_sensor' 	=> $this->input->post('id_sensor'),
+			'hum' 			=> $this->input->post('hum'),
+			'temp' 			=> $this->input->post('temp'),
+			'presenca' 		=> $this->input->post('presenca'),
 		  );
 
-		//$this->refresh_model->refresh_sensores();
+		$this->refresh_model->entra_leitura_sensores($data);
 	}
 }

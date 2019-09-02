@@ -4,6 +4,8 @@ class Refresh_model extends CI_Model{
 
     function refresh_sensores(){
 
+        $this->db->reconnect();
+
         //$this->load->database(); 
         //$this->db->reconnect();
 
@@ -11,11 +13,13 @@ class Refresh_model extends CI_Model{
             SELECT 
             pacientes.Nome as Paciente, pacientes.Idade, 
             ambientes.Nome as Ambiente, ambientes.idAmbiente,
-            sensores.idSensor, sensores.Nome, sensores.Status, 
-            sensores.AtivadoEm, sensores.DesativadoEm, sensores.Leitura 
-            FROM pacientes, ambientes, sensores 
+            sensores.idSensor, sensores.Nome, leituras_sensores.Status, 
+            leituras_sensores.AtivadoEm, leituras_sensores.DesativadoEm, 
+            leituras_sensores.LeituraEm, leituras_sensores.LeituraHumidade,
+            leituras_sensores.LeituraTemperatura, leituras_sensores.LeituraPresenca, sensores.Tipo
+            FROM pacientes, ambientes, sensores, leituras_sensores 
             WHERE pacientes.idPaciente = ambientes.idPaciente 
-            AND ambientes.idAmbiente = sensores.idAmbiente
+            AND ambientes.idAmbiente = sensores.idAmbiente AND sensores.idSensor = leituras_sensores.id_sensor
             ORDER BY Tipo ASC
         ");
         
@@ -33,5 +37,11 @@ class Refresh_model extends CI_Model{
         ");
         
         return $query->result();
+    }
+
+    function entra_leitura_sensores($data){                        
+        
+        $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[hum], LeituraPresenca = $data[presenca] WHERE id_sensor = $data[id_sensor]");
+        
     }
 }
