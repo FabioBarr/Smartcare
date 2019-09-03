@@ -9,11 +9,11 @@
 <meta name="keywords" content="ESCREVER PALAVRAS CHAVE AQUI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <!-- CORES TEMA PARA NAVEGADOR Chrome, Firefox OS e Opera -->
-<meta name="theme-color" content="#FFDEA3">
+<meta name="theme-color" content="#8B0000">
 <!-- CORES TEMA PARA NAVEGADOR Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#FFDEA3">
+<meta name="msapplication-navbutton-color" content="#8B0000">
 <!-- CORES TEMA PARA NAVEGADOR iOS Safari -->
-<meta name="apple-mobile-web-app-status-bar-style" content="#FFDEA3">
+<meta name="apple-mobile-web-app-status-bar-style" content="#8B0000">
 <!-- 
 KIT FAVICON PARA MOBILE E DESKTOP
 <link rel="shortcut icon" href="" type="image/x-icon">
@@ -70,14 +70,24 @@ foreach($Ambientes as $infoAmbientes){
                             <div><h5>'.$infoSensores->Nome.'</h5></div>
                             Temperatura
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar1" aria-valuenow="'.$infoSensores->LeituraTemperatura.'"
+                                <div class="progress-bar '; 
+                                
+                                if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
+                                 echo 'progress-bar-striped progress-bar-animated';
+
+                                echo ' active" role="progressbar1" aria-valuenow="'.$infoSensores->LeituraTemperatura.'"
                                 aria-valuemin="0" aria-valuemax="50" style="width:'.$infoSensores->LeituraTemperatura.'%">
                                 '.$infoSensores->LeituraTemperatura.'ºC
                                 </div>
                             </div>
                             Humidade
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar2" aria-valuenow="'.$infoSensores->LeituraHumidade.'"
+                                <div class="progress-bar '; 
+                                
+                                if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
+                                 echo 'progress-bar-striped progress-bar-animated';
+
+                                echo ' active" role="progressbar2" aria-valuenow="'.$infoSensores->LeituraHumidade.'"
                                 aria-valuemin="0" aria-valuemax="95" style="width:'.$infoSensores->LeituraHumidade.'%">
                                 '.$infoSensores->LeituraHumidade.'%
                                 </div>
