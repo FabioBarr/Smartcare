@@ -15,7 +15,7 @@ class Refresh_model extends CI_Model{
             ambientes.Nome as Ambiente, ambientes.idAmbiente,
             sensores.idSensor, sensores.Nome, leituras_sensores.Status, 
             leituras_sensores.AtivadoEm, leituras_sensores.DesativadoEm, 
-            leituras_sensores.LeituraEm, leituras_sensores.LeituraHumidade,
+            CONVERT_TZ(leituras_sensores.LeituraEm,'+00:00','-03:00') as LeituraEm, leituras_sensores.LeituraHumidade,
             leituras_sensores.LeituraTemperatura, leituras_sensores.LeituraPresenca, sensores.Tipo
             FROM pacientes, ambientes, sensores, leituras_sensores 
             WHERE pacientes.idPaciente = ambientes.idPaciente 
@@ -41,7 +41,7 @@ class Refresh_model extends CI_Model{
 
     function entra_leitura_sensores($data){                        
         
-        $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[hum], LeituraPresenca = $data[presenca] WHERE id_sensor = $data[id_sensor]");
+        $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[temp], LeituraPresenca = $data[presenca] WHERE id_sensor = $data[id_sensor]");
         
     }
 }

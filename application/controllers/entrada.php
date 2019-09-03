@@ -10,6 +10,9 @@ class Entrada extends CI_Controller {
 
 	public function index()
 	{
+		
+
+
 
 		$data = array(
 			'id_sensor' 	=> $this->input->post('id_sensor'),
