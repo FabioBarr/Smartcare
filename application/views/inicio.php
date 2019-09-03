@@ -73,7 +73,8 @@ foreach($Ambientes as $infoAmbientes){
                                 <div class="progress-bar '; 
                                 
                                 if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
-                                 echo 'progress-bar-striped progress-bar-animated';
+                                 echo 'progress-bar-striped progress-bar-animated bg-success';
+                                 else echo 'bg-danger';
 
                                 echo ' active" role="progressbar1" aria-valuenow="'.$infoSensores->LeituraTemperatura.'"
                                 aria-valuemin="0" aria-valuemax="50" style="width:'.$infoSensores->LeituraTemperatura.'%">
@@ -85,7 +86,8 @@ foreach($Ambientes as $infoAmbientes){
                                 <div class="progress-bar '; 
                                 
                                 if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
-                                 echo 'progress-bar-striped progress-bar-animated';
+                                 echo 'progress-bar-striped progress-bar-animated bg-success';
+                                 else echo 'bg-danger';
 
                                 echo ' active" role="progressbar2" aria-valuenow="'.$infoSensores->LeituraHumidade.'"
                                 aria-valuemin="0" aria-valuemax="95" style="width:'.$infoSensores->LeituraHumidade.'%">
