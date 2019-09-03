@@ -41,7 +41,7 @@ class Refresh_model extends CI_Model{
 
     function entra_leitura_sensores($data){                        
         
-        $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[temp], LeituraPresenca = $data[presenca] WHERE id_sensor = $data[id_sensor]");
+        $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[temp], LeituraPresenca = $data[presenca], LeituraEm = NOW() WHERE id_sensor = $data[id_sensor]");
         
     }
 }
