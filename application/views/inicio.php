@@ -9,11 +9,11 @@
 <meta name="keywords" content="ESCREVER PALAVRAS CHAVE AQUI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <!-- CORES TEMA PARA NAVEGADOR Chrome, Firefox OS e Opera -->
-<meta name="theme-color" content="#8B0000">
+<meta name="theme-color" content="#FAFAD2">
 <!-- CORES TEMA PARA NAVEGADOR Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#8B0000">
+<meta name="msapplication-navbutton-color" content="#FAFAD2">
 <!-- CORES TEMA PARA NAVEGADOR iOS Safari -->
-<meta name="apple-mobile-web-app-status-bar-style" content="#8B0000">
+<meta name="apple-mobile-web-app-status-bar-style" content="#FAFAD2">
 <!-- 
 KIT FAVICON PARA MOBILE E DESKTOP
 <link rel="shortcut icon" href="" type="image/x-icon">
@@ -54,6 +54,7 @@ KIT FAVICON PARA MOBILE E DESKTOP
 <?php
 
 foreach($Ambientes as $infoAmbientes){
+    date_default_timezone_set('America/Sao_Paulo');
 
     echo '
         <div class="card m-2 p-2" style="background-color: #FAFAD2;">
