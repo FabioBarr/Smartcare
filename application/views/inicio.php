@@ -113,8 +113,8 @@ foreach($Ambientes as $infoAmbientes){
                     echo '
                     </div>
                     <div>Última Leitura: '.date_format (new DateTime($infoSensores->LeituraEm), 'd/m/y - H:i').'h</div>
-                    <div><font style="font-size: 9px;">Ativado em: '.date_format (new DateTime($infoSensores->AtivadoEm), 'd/m/y - H:i').'</font></div>
-                    <div><font style="font-size: 9px;">Desativado em: '.date_format (new DateTime($infoSensores->DesativadoEm), 'd/m/y - H:i').'</font></div>
+                    <div><font style="font-size: 9px;">Ativado em: '.date_format (new DateTime($infoSensores->AtivadoEm), 'd/m/y - H:i').'h</font></div>
+                    <div><font style="font-size: 9px;">Desativado em: '.date_format (new DateTime($infoSensores->DesativadoEm), 'd/m/y - H:i').'h</font></div>
                     </div>
                     </div>
                     ';
