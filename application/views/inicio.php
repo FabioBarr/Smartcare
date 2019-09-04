@@ -41,7 +41,7 @@ KIT FAVICON PARA MOBILE E DESKTOP
             clearInterval(interval);
         });
     }
-    interval = setInterval(refresh_div, 15000); 
+    interval = setInterval(refresh_div, 2000); 
 </script>
 </head>
 <body>

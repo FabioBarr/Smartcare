@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['base_url'] = 'http://localhost:8888/smartcare/';
+
+date_default_timezone_set('America/Sao_Paulo');
+
+
+$config['base_url'] = 'http://localhost/smartcare/';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
@@ -43,8 +47,8 @@ $config['csrf_token_name'] = 'E4FKDTU7';
 $config['csrf_cookie_name'] = 'AVTQE3ZS';
 $config['csrf_expire'] = 86400;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array('atualiza');
+$config['csrf_exclude_uris'] = array('entrada/retorno');
 $config['compress_output'] = FALSE;
-$config['time_reference'] = 'local';
+$config['time_reference'] = 'America/Sao_Paulo';
 $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
