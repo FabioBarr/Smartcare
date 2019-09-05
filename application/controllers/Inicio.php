@@ -11,11 +11,14 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
+		if($this->session->userdata('logado') == TRUE){
 		$data['Sensores'] = $this->refresh_model->refresh_sensores();
 		$data['Ambientes'] = $this->refresh_model->refresh_ambientes();
+		$this->load->view('template', $data);
+		} else {
 
-		//$this->load->view('inicio', $data);
-		$this->load->view('painel');
+		$this->load->view('login');
+		}
 
 	}
 }

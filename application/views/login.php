@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>Smartcare</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url('template/vendor/fontawesome-free/css/all.min.css');?>" rel="stylesheet" type="text/css">
@@ -39,23 +39,27 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Smartcare</h1>
                   </div>
-                  <form class="user">
+                  <div class="text-center">
+                    <?php
+                            //ECHO MENSAGENS DE SUCESSO OU ERRO
+                            echo $this->session->userdata('sucesso');
+                            echo $this->session->userdata('erro');
+                    ?>
+                  </div>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="E-mail">
+                      <?php echo form_open('login'); //FORM OPEN ?> 
+                      <input type="email" name="email" pattern=".{6,100}" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="E-mail">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+                      <input type="password" name="senha" pattern=".{4,16}" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
-                  </form>
+                    <?php echo form_submit(array('id' => 'Entrar', 'value' => 'Entrar', 'class'=>'btn btn-primary btn-user btn-block')).form_close(); //BOTÃO DE LOGIN E FOMR CLOSE ?>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
+                    <a class="small" href="#">Esqueceu a senha?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Criar sua conta!</a>
+                    <a class="small" href="#">Criar sua conta!</a>
                   </div>
                 </div>
               </div>
