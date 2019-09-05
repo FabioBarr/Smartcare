@@ -35,7 +35,7 @@ class Login extends CI_Controller {
             redirect(base_url());
         }
         $row = $query->row();
-        if (!password_verify($senha, $row->Senha)) {
+        if ($senha != $row->Senha) { //!password_verify($senha, $row->Senha)
             // Senha Incorreta
             $this->session->set_flashdata('erro', '<div class="col-lg-12"><center><div class="alert alert-danger w-75 m-5" role="alert"><strong>Usuário ou senha incorreta! </strong>Tente novamente.</div></center></div>');
             redirect(base_url());
