@@ -37,11 +37,38 @@ KIT FAVICON PARA MOBILE E DESKTOP
 <script>
     function refresh_div() {
         $(function(){
-            $("#refresh").load("<?php echo base_url(); ?>");
+            $("#temperatura").load("<?php echo base_url(); ?>");
+            $("#humidade").load("<?php echo base_url(); ?>");
             clearInterval(interval);
         });
     }
     interval = setInterval(refresh_div, 2000); 
+
+
+
+/* 
+
+
+    $(document).ready(function() {
+  var id = $('#id_data').val();
+  $.ajax({
+    url: "<?php echo site_url('refresh')?>",
+    type: "GET",
+    dataType: "JSON",
+    success: function(data) {
+      if (data[0] === undefined) return;
+      $('#name').text(data[0].name);
+      $('#address').text(data[0].address);
+      $('#telp').text(data[0].telp);
+    }
+  });
+  clearInterval(interval);
+})
+
+interval = setInterval(refresh_div, 2000); 
+
+*/
+    
 </script>
 </head>
 <body>
