@@ -14,6 +14,8 @@ class Inicio extends CI_Controller {
 		$data['Sensores'] = $this->refresh_model->refresh_sensores();
 		$data['Ambientes'] = $this->refresh_model->refresh_ambientes();
 
-		$this->load->view('inicio', $data);
+		//$this->load->view('inicio', $data);
+		$this->load->view('painel');
+
 	}
 }
