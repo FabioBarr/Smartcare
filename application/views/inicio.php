@@ -34,42 +34,49 @@ KIT FAVICON PARA MOBILE E DESKTOP
 <link href="<?php echo base_url('bootstrap/css/bootstrap.min.css.map');?>" rel="stylesheet">
 <!-- ATUALIZA Sensores -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script>
-    function refresh_div() {
-        $(function(){
-            $("#temperatura").load("<?php echo base_url(); ?>");
-            $("#humidade").load("<?php echo base_url(); ?>");
-            clearInterval(interval);
-        });
-    }
-    interval = setInterval(refresh_div, 2000); 
+function leitura() {
 
-
-
-/* 
-
-
-    $(document).ready(function() {
-  var id = $('#id_data').val();
   $.ajax({
-    url: "<?php echo site_url('refresh')?>",
-    type: "GET",
-    dataType: "JSON",
-    success: function(data) {
-      if (data[0] === undefined) return;
-      $('#name').text(data[0].name);
-      $('#address').text(data[0].address);
-      $('#telp').text(data[0].telp);
-    }
+        url: "<?php echo site_url('index.php/refresh')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data) {
+            if (data[0] === undefined) return;
+            i = 0;
+            jQuery.each(data, function() {
+                if(data[i].LeituraTemperatura){
+                $('#LeituraTemperatura'+i).text(data[i].LeituraTemperatura);
+                document.getElementById('LeituraTemperatura'+i).style.width = data[i].LeituraTemperatura+'%';
+                console.log($('#LeituraTemperatura'+i));
+                }
+                if(data[i].LeituraHumidade){
+                $('#LeituraHumidade'+i).text(data[i].LeituraHumidade);
+                document.getElementById('LeituraHumidade'+i).style.width = data[i].LeituraHumidade+'%';
+                console.log($('#LeituraHumidade'+i));
+                }
+                if(data[i].AtivadoEm){
+                $('#AtivadoEm'+i).text(data[i].AtivadoEm);
+                console.log($('#AtivadoEm'+i));
+                }
+                if(data[i].DesativadoEm){
+                $('#DesativadoEm'+i).text(data[i].DesativadoEm);
+                console.log($('#DesativadoEm'+i));
+                }
+                if(data[i].LeituraEm){
+                $('#LeituraEm'+i).text(data[i].LeituraEm);
+                console.log($('#LeituraEm'+i));
+                }
+                i++;
+            });
+        }
   });
-  clearInterval(interval);
-})
-
-interval = setInterval(refresh_div, 2000); 
-
-*/
-    
+}
+//interval = setInterval(leitura, 5000); 
+leitura();   
 </script>
+
 </head>
 <body>
 <div id="refresh" class="container">
@@ -78,7 +85,13 @@ interval = setInterval(refresh_div, 2000);
 <div>Idade: <?php echo $Sensores[0]->Idade; ?></div>
 <div class="col-lg-12">
 <div class="row p-1 m-1">
+
 <?php
+$leitura_tem_hum = 0;
+$leitura_ultima_leitura = 0;
+$leitura_ativado_em = 0;
+$leitura_desativado_em = 0;
+
 
 foreach($Ambientes as $infoAmbientes){
     date_default_timezone_set('America/Sao_Paulo');
@@ -88,47 +101,58 @@ foreach($Ambientes as $infoAmbientes){
         <div class="card-body">
         <h4 class="card-title">'.$infoAmbientes->Ambiente.'</h4>';
             foreach($Sensores as $infoSensores){
+                
                 if($infoSensores->idAmbiente == $infoAmbientes->idAmbiente){
                     echo '
                     <div class="card m-1 p-1">
                     <div class="card-body">';
 
                     if($infoSensores->Tipo == 1){
+                        
+                        
                         echo '
+                        
                             <div><h5>'.$infoSensores->Nome.'</h5></div>
                             Temperatura
                             <div class="progress">
-                                <div class="progress-bar '; 
+                                <div id = "LeituraTemperatura'.$leitura_tem_hum.'" class="progress-bar '; 
                                 
                                 if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
                                  echo 'progress-bar-striped progress-bar-animated bg-success';
                                  else echo 'bg-danger';
 
-                                echo ' active" role="progressbar1" aria-valuenow="'.$infoSensores->LeituraTemperatura.'"
-                                aria-valuemin="0" aria-valuemax="50" style="width:'.$infoSensores->LeituraTemperatura.'%">
-                                '.$infoSensores->LeituraTemperatura.'ºC
+                                echo ' active" role="progressbar1" aria-valuenow="<span id=`LeituraTemperatura'.$leitura_tem_hum.'`></span>"
+                                aria-valuemin="0" aria-valuemax="50">
+                                <span id="LeituraTemperatura'.$leitura_tem_hum.'">ºC</span>
                                 </div>
                             </div>
                             Humidade
                             <div class="progress">
-                                <div class="progress-bar '; 
+                                <div id = "LeituraHumidade'.$leitura_tem_hum.'" class="progress-bar '; 
                                 
                                 if($infoSensores->Status == 1) //Anima apenas barras de sensores ativos
                                  echo 'progress-bar-striped progress-bar-animated bg-success';
                                  else echo 'bg-danger';
 
-                                echo ' active" role="progressbar2" aria-valuenow="'.$infoSensores->LeituraHumidade.'"
-                                aria-valuemin="0" aria-valuemax="95" style="width:'.$infoSensores->LeituraHumidade.'%">
-                                '.$infoSensores->LeituraHumidade.'%
+                                echo ' active" role="progressbar2"
+                                aria-valuemin="0" aria-valuemax="95">
+                                <span><span id="LeituraHumidade'.$leitura_tem_hum.'"></span>%</span>
                                 </div>
                             </div>
                         ';
+
+                        $leitura_tem_hum++;
+
+                        
                     } else if($infoSensores->Tipo == 4){
+                        
+                        
                         echo '<div><h5>'.$infoSensores->Nome.'</h5></div>';
                         if($infoSensores->LeituraPresenca == 1)
                             echo '<b>Paciente presente</b>';
                         else
                             echo '<b>Paciente ausente</b>';
+                            
                     }
                     echo '                   
                     <div>Status do Sensor: ';
@@ -140,15 +164,20 @@ foreach($Ambientes as $infoAmbientes){
                             '<font style="color: #DC143C">Desligado</font>';
                     echo '
                     </div>
-                    <div>Última Leitura: '.date_format (new DateTime($infoSensores->LeituraEm), 'd/m/y - H:i').'h</div>
-                    <div><font style="font-size: 9px;">Ativado em: '.date_format (new DateTime($infoSensores->AtivadoEm), 'd/m/y - H:i').'h</font></div>
-                    <div><font style="font-size: 9px;">Desativado em: '.date_format (new DateTime($infoSensores->DesativadoEm), 'd/m/y - H:i').'h</font></div>
+                    <div>Última Leitura: 
+                    <span id="AtivadoEm'.$leitura_ultima_leitura.'"</span></div>
+                    <div><font style="font-size: 9px;">Ativado em: 
+                    <span id="DesativadoEm'.$leitura_ativado_em.'"></span></font></div>
+                    <div><font style="font-size: 9px;">Desativado em: 
+                    <span id="LeituraEm'.$leitura_desativado_em.'"></span></font></div>
                     </div>
                     </div>
                     ';
+                    $leitura_ultima_leitura++;
+                    $leitura_ativado_em++;
+                    $leitura_desativado_em++;
                 }
             }
-
     echo '
     </div>
     </div>

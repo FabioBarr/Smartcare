@@ -11,9 +11,13 @@ class Refresh extends CI_Controller {
 
 	public function index()
 	{
-		$data['Sensores'] = $this->refresh_model->refresh_sensores();
+		if(3 == 3){//COLOCAR AQUI O TOKEN DE SESSÃO DE USUÁRIO PARA PROTEGER OS DADOS DO JSON
+
+		$sensores = $this->refresh_model->refresh_sensores();
 		$data['Ambientes'] = $this->refresh_model->refresh_ambientes();
 
-		echo json_encode($data);
+		echo json_encode($sensores);
+
+		} else {return false;}
 	}
 }
