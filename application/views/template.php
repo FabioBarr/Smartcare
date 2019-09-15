@@ -20,7 +20,7 @@
 <!-- ATUALIZA Sensores -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<!--<script>
+<script>
 function leitura() {
 
   $.ajax({
@@ -60,7 +60,7 @@ function leitura() {
 }
 interval = setInterval(leitura, 5000);
 
-</script>-->
+</script>
 </head>
 
 <body id="page-top">
