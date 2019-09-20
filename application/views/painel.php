@@ -176,7 +176,7 @@ foreach($Ambientes as $infoAmbientes){
                     echo '
                     </div>
                     <div>Última Leitura: 
-                    <span id="AtivadoEm'.$leitura_ultima_leitura.'"</span></div>
+                    <div id = "LeituraEm'.$leitura_ultima_leitura.'"></div></div>
                     <div><font style="font-size: 9px;">Ativado em: 
                     <span id="DesativadoEm'.$leitura_ativado_em.'"></span></font></div>
                     <div><font style="font-size: 9px;">Desativado em: 
@@ -187,6 +187,8 @@ foreach($Ambientes as $infoAmbientes){
                     $leitura_ultima_leitura++;
                     $leitura_ativado_em++;
                     $leitura_desativado_em++;
+                    $leitura_status++;
+
                 }
             }
     echo '
