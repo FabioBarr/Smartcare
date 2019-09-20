@@ -49,31 +49,35 @@ function leitura() {
                 if(data[i].LeituraTemperatura){
                 $('#LeituraTemperatura'+i).text(data[i].LeituraTemperatura);
                 document.getElementById('LeituraTemperatura'+i).style.width = data[i].LeituraTemperatura+'%';
-                console.log($('#LeituraTemperatura'+i));
+                //console.log($('#LeituraTemperatura'+i));
                 }
                 if(data[i].LeituraHumidade){
                 $('#LeituraHumidade'+i).text(data[i].LeituraHumidade);
                 document.getElementById('LeituraHumidade'+i).style.width = data[i].LeituraHumidade+'%';
-                console.log($('#LeituraHumidade'+i));
+                //console.log($('#LeituraHumidade'+i));
+                }
+                if(data[i].Status){
+                $('#Status'+i).text(data[i].Status);
+                console.log($('#Status'+i));
                 }
                 if(data[i].AtivadoEm){
                 $('#AtivadoEm'+i).text(data[i].AtivadoEm);
-                console.log($('#AtivadoEm'+i));
+                //console.log($('#AtivadoEm'+i));
                 }
                 if(data[i].DesativadoEm){
                 $('#DesativadoEm'+i).text(data[i].DesativadoEm);
-                console.log($('#DesativadoEm'+i));
+                //console.log($('#DesativadoEm'+i));
                 }
                 if(data[i].LeituraEm){
                 $('#LeituraEm'+i).text(data[i].LeituraEm);
-                console.log($('#LeituraEm'+i));
+                //console.log($('#LeituraEm'+i));
                 }
                 i++;
             });
         }
   });
 }
-//interval = setInterval(leitura, 5000); 
+interval = setInterval(leitura, 3000); 
 leitura();   
 </script>
 
@@ -91,9 +95,13 @@ $leitura_tem_hum = 0;
 $leitura_ultima_leitura = 0;
 $leitura_ativado_em = 0;
 $leitura_desativado_em = 0;
+$leitura_status = 0;
 
 
 foreach($Ambientes as $infoAmbientes){
+
+
+
     date_default_timezone_set('America/Sao_Paulo');
 
     echo '
@@ -101,6 +109,9 @@ foreach($Ambientes as $infoAmbientes){
         <div class="card-body">
         <h4 class="card-title">'.$infoAmbientes->Ambiente.'</h4>';
             foreach($Sensores as $infoSensores){
+
+                echo '<div id = "Status'.$leitura_status.'"></div>';
+
                 
                 if($infoSensores->idAmbiente == $infoAmbientes->idAmbiente){
                     echo '
@@ -111,7 +122,7 @@ foreach($Ambientes as $infoAmbientes){
                         
                         
                         echo '
-                        
+                        <div id = "LeituraTemperatura'.$leitura_tem_hum.'"
                             <div><h5>'.$infoSensores->Nome.'</h5></div>
                             Temperatura
                             <div class="progress">

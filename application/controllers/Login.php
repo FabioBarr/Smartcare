@@ -4,12 +4,11 @@ class Login extends CI_Controller {
 
     public function index() {
 
-        $this->sqlite = $this->load->database('sqlite', true);
 
         $email = $this->input->post('email');
 		$senha = $this->input->post('senha');
 		
-        $query = $this->sqlite->query("SELECT * FROM pacientes WHERE Email = '$email'");
+        $query = $this->db->query("SELECT * FROM pacientes WHERE Email = '$email'");
         
 		/*
 		//INICIO GOOGLE RECAPTCHA V3
