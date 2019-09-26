@@ -5,7 +5,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 
 $config['base_url'] = 'http://localhost/smartcare/';
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
 
