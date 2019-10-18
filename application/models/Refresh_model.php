@@ -68,4 +68,14 @@ class Refresh_model extends CI_Model{
         $this->db->query("UPDATE leituras_sensores SET LeituraHumidade = $data[hum], LeituraTemperatura = $data[temp], LeituraPresenca = $data[presenca], LeituraEm = '$now' WHERE id_sensor = $data[id_sensor]");
         
     }
+
+    function dados_usuario(){
+
+        $idUsuario = $this->session->userdata('idUsuario');
+        
+        $query = $this->db->query("SELECT * FROM Usuarios WHERE idUsuario = $idUsuario");
+        return $query->result();
+
+        
+    }
 }

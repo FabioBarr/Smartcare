@@ -14,6 +14,7 @@ class Inicio extends CI_Controller {
 		if($this->session->userdata('logado') == TRUE){
 		$data['Sensores'] = $this->refresh_model->refresh_sensores();
 		$data['Ambientes'] = $this->refresh_model->refresh_ambientes();
+		$data['User'] = $this->refresh_model->dados_usuario();
 		$this->load->view('template', $data);
 		} else {
 
