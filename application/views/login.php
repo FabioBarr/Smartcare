@@ -116,7 +116,7 @@ Nossa missão é assegurar a <b>segurança</b>, <b>bem estar</b> e <b>privacidad
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
+            <label for="recipient-name" class="col-form-label">E-mail remetente:</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
           <div class="form-group">
