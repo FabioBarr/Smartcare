@@ -162,7 +162,7 @@ foreach($Ambientes as $infoAmbientes){
                         if($infoSensores->LeituraPresenca == 1)
                             echo '<b>Paciente presente</b>';
                         else
-                            echo '<b>Paciente ausente</b>';
+                            echo '<b> ausente</b>';
                             
                     }
                     echo '                   

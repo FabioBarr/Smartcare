@@ -8,19 +8,18 @@ class Refresh_model extends CI_Model{
         $email = $this->input->post('email');
 		$senha = $this->input->post('senha');
 		
-        //$this->load->database(); 
-        //$this->db->reconnect();
+        $idUsuario = $this->session->userdata('idUsuario');
 
         $query = $this->db->query("
             SELECT 
-            pacientes.Nome as Paciente, pacientes.Idade, 
+            usuarios.Nome as Usuario, usuarios.Idade, 
             ambientes.Nome as Ambiente, ambientes.idAmbiente,
             sensores.idSensor, sensores.Nome, Status, 
             AtivadoEm, DesativadoEm,
             LeituraEm, LeituraHumidade,
             LeituraTemperatura, LeituraPresenca, sensores.Tipo
-            FROM pacientes, ambientes, sensores, leituras_sensores 
-            WHERE pacientes.idPaciente = ambientes.idPaciente AND pacientes.idPaciente = 2
+            FROM usuarios, ambientes, sensores, leituras_sensores 
+            WHERE usuarios.idUsuario = ambientes.idUsuario AND usuarios.idUsuario = $idUsuario
             AND ambientes.idAmbiente = sensores.idAmbiente AND sensores.idSensor = id_sensor
             ORDER BY Tipo ASC
         ");
@@ -32,9 +31,10 @@ class Refresh_model extends CI_Model{
 
 
         $now = date('Y-m-d H:i:s', time());
+        $idUsuario = $this->session->userdata('idUsuario');
         
-        $query = $this->db->query("SELECT idleitura_sensor, LeituraEm, Status FROM pacientes, ambientes, sensores, leituras_sensores 
-        WHERE pacientes.idPaciente = ambientes.idPaciente AND pacientes.idPaciente = 2
+        $query = $this->db->query("SELECT idleitura_sensor, LeituraEm, Status FROM usuarios, ambientes, sensores, leituras_sensores 
+        WHERE usuarios.idUsuario = ambientes.idUsuario AND usuarios.idUsuario = $idUsuario
         AND ambientes.idAmbiente = sensores.idAmbiente AND sensores.idSensor = id_sensor");
         
         foreach($query->result() as $row){
@@ -53,9 +53,9 @@ class Refresh_model extends CI_Model{
         $query = $this->db->query("
             SELECT DISTINCT
             ambientes.Nome as Ambiente, ambientes.idAmbiente
-            FROM pacientes, ambientes, sensores 
-            WHERE pacientes.idPaciente = ambientes.idPaciente 
-            AND ambientes.idAmbiente = sensores.idAmbiente AND pacientes.idPaciente = 2
+            FROM usuarios, ambientes, sensores 
+            WHERE usuarios.idUsuario = ambientes.idUsuario 
+            AND ambientes.idAmbiente = sensores.idAmbiente AND usuarios.idUsuario = 2
         ");
         
         return $query->result();

@@ -8,7 +8,7 @@ class Login extends CI_Controller {
         $email = $this->input->post('email');
 		$senha = $this->input->post('senha');
 		
-        $query = $this->db->query("SELECT * FROM pacientes WHERE Email = '$email'");
+        $query = $this->db->query("SELECT * FROM usuarios WHERE Email = '$email'");
         
 		/*
 		//INICIO GOOGLE RECAPTCHA V3
@@ -42,7 +42,7 @@ class Login extends CI_Controller {
             // Logado com sucesso
             $dadosSessao['logado'] = TRUE;
             $dadosSessao['email'] = $email;
-            $dadosSessao['idPaciente'] = $row->idPaciente;
+            $dadosSessao['idUsuario'] = $row->idUsuario;
             $dadosSessao['usuario'] = $row->Nome;
             $this->session->set_userdata($dadosSessao);
             $referred_from = $this->session->userdata('referred_from');

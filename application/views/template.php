@@ -161,11 +161,14 @@ interval = setInterval(leitura, 5000);
           <span>Gráficos</span></a>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tabelas</span></a>
+        <a class="nav-link" href="<?php echo base_url('index.php/login/deslogar') ?>">
+        <i class="fas fa-sign-out-alt"></i>
+          <span>Sair</span></a>
       </li>
 
       <!-- Divider -->

@@ -13,7 +13,7 @@
   <title>Smartcare</title>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <i class="fas fa-stethoscope"></i>
-  <a class="navbar-brand" href="#"> Smartcare</a>
+  <a class="navbar-brand" href="<?php echo base_url(); ?>"> Smartcare</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,61 +30,141 @@
       </li>
     </ul>
 
-
-
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
-  Login
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalLogin">
+  Acessar
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Acesse sua Conta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<!--Fomulario de login-->
-
-
-  <div class="p-5">
-    <div class="text-center">
-        <i class="fas fa-stethoscope"></i>
-      <h1 class="h4 text-gray-900 mb-4">Smartcare</h1>
-    </div>
-    <div class="text-center">
-      <?php
-              //ECHO MENSAGENS DE SUCESSO OU ERRO
-              echo $this->session->userdata('sucesso');
-              echo $this->session->userdata('erro');
-      ?>
-    </div>
-      <div class="form-group">
-        <?php echo form_open('login'); //FORM OPEN ?>
-        <input type="email" name="email" pattern=".{6,100}" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="E-mail">
-      </div>
-      <div class="form-group">
-        <input type="password" name="senha" pattern=".{4,16}" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
-      </div>
-      <?php echo form_submit(array('id' => 'Entrar', 'value' => 'Entrar', 'class'=>'btn btn-primary btn-user btn-block')).form_close(); //BOTÃO DE LOGIN E FOMR CLOSE ?>
-    <hr>
-    <div class="text-center">
-      <a class="small" href="#">Esqueceu a senha?</a>
-    </div>
-    <div class="text-center">
-      <a class="small" href="#">Criar sua conta!</a>
-    </div>
-  </div>
+<!-- Inicio Modal login -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">Acesse sua Conta</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
 </div>
+<div class="modal-body">
+<!--Fomulario de login-->
+<div class="p-0">
+<div class="text-center">
+<i class="fas fa-stethoscope"></i>
+<h1 class="h4 text-gray-900 mb-4">Smartcare</h1>
+</div>
+<div class="text-center">
+</div>
+<div class="form-group">
+<?php echo form_open('login'); //FORM OPEN ?>
+<input type="email" name="email" pattern=".{6,100}" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="E-mail">
+</div>
+<div class="form-group">
+<input type="password" name="senha" pattern=".{4,16}" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
+</div>
+<?php echo form_submit(array('id' => 'Entrar', 'value' => 'Entrar', 'class'=>'btn btn-primary btn-user btn-block')).form_close(); //BOTÃO DE LOGIN E FOMR CLOSE ?>
+<hr>
+<div class="text-center">
+<a class="small" href="#">Esqueceu a senha?</a>
+</div>
+<div class="text-center">
+<a class="small" href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalCadastro">Criar sua conta!</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fim Modal login -->
 
-  </div>
-    </div>
-  </div>
-  </div>
+
+<!-- Inicio Modal cadastro -->
+<div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="modalCadastroTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">Requerer cadastro</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body" style="max-height:500px; overflow-y: scroll;">
+<!--Fomulario de cadastro-->
+<div class="p-0">
+<div class="text-left mb-4">
+<b>Para utlizar os serviços Smartcare preencha os dados abaixo e um consultor entrará em contato nas próximas 24h:</b>
+</div>
+<div class="form-group">
+<?php echo form_open('cadastro/proposta'); //FORM OPEN ?>
+
+<div class="form-group"> <!-- fechamento marcado ao fim -->
+
+<p align="left">Nome do paciente*
+<input type="text" name="nomePaciente" pattern=".{6,100}" class="form-control form-control-user" placeholder="Informe nome do paciente" required>
+</p>
+
+<p align="left">CPF do paciente*
+<input type="text" name="CPFPaciente" pattern=".{6,100}" class="form-control form-control-user" placeholder="Informe o CPF do paciente" required>
+</p>
+
+<p align="left">Nome do responsável*
+<input type="text" name="nomeResponsavel" pattern=".{6,100}" class="form-control form-control-user" placeholder="Informe nome do responsável" required>
+</p>
+
+<p align="left">Email do responsável*
+<input type="email" name="emailResponsavel" pattern=".{6,100}" class="form-control form-control-user" placeholder="Informe o e-mail do responsável" required>
+</p>
+
+<p align="left">Telefone do responsável*
+<input type="text" name="telefoneResponsavel" pattern=".{6,100}" class="form-control form-control-user" placeholder="Informe o telefone do responsável" required>
+</p>
+
+<p align="left">CEP* <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCep.cfm" target="_blank" ><i class="far fa-question-circle"></i></a>
+<input type="tel" pattern="[0-9]{8,}" maxlength="8" title="Digitar apenas números (8 caracteres)" placeholder="Digite seu CEP (apenas números)" class="form-control" name="CEP" id="dcep" autocomplete="off" onblur="pesquisacep(this.value);" required>
+</p>
+
+<p align="left">Logradouro*
+<input type="text" readonly placeholder="Informe o CEP para preenchimento automático" class="form-control" name="Logradouro" id="dlogradouro"  oninvalid="this.setCustomValidity('Informe o CEP para preenchimento automático da logradouro!')" onchange="this.setCustomValidity()" value="" required>
+</p> 
+
+<p align="left">Número*
+<input type="text" placeholder="Informe o número" class="form-control" name="Numero">
+</p>
+
+<p align="left">Unidade*
+<input type="text" placeholder="Ex.: apt 101" class="form-control" name="Unidade">
+</p>
+
+<p align="left">Bairro*
+<input type="text" readonly placeholder="Informe o CEP para preenchimento automático" class="form-control" name="Bairro" id="dbairro" oninvalid="this.setCustomValidity('Informe o CEP para preenchimento automático do bairro!')" onchange="this.setCustomValidity()" value="" required>
+</p>
+
+<p align="left">Cidade*
+<input type="text" readonly placeholder="Informe o CEP para preenchimento automático" class="form-control" name="Cidade" id="dcidade" oninvalid="this.setCustomValidity('Informe o CEP para preenchimento automático da cidade!')" onchange="this.setCustomValidity()" value="" required>
+</p>
+
+<p align="left">Estado*
+<input type="text" readonly placeholder="Informe o CEP para preenchimento automático" class="form-control" name="UF" id="duf" oninvalid="this.setCustomValidity('Informe o CEP para preenchimento automático da cidade!')" onchange="this.setCustomValidity()" value="" required>
+</p>
+
+<p align="left">Complemento
+<input type="text" placeholder="Informe o complemento" class="form-control" name="Complemento">
+<input type="hidden" id="dcomplemento" value="">
+
+</p>
+
+</div> <!-- div form group -->
+
+<?php echo form_submit(array('id' => '', 'value' => 'Enviar', 'class'=>'btn btn-primary btn-user btn-block')).form_close(); //BOTÃO DE LOGIN E FOMR CLOSE ?>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fim Modal Cadastro -->
+
 </nav>
 
   <!-- Custom fonts for this template-->
@@ -97,13 +177,15 @@
 </head>
 
 <body class="bg-gradient-primary">
-
-
+<?php
+//ECHO MENSAGENS DE SUCESSO OU ERRO
+echo $this->session->userdata('sucesso');
+echo $this->session->userdata('erro');
+?>
 
   <div class="container">
 
     <!-- Outer Row -->
-
 
     </div>
 
@@ -144,15 +226,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
 </body>
+
+<script src="<?php echo base_url('js/cep.js'); ?>"></script>
 
 </html>
