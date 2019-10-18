@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('America/Sao_Paulo');
 
 
-$config['base_url'] = 'http://localhost:8888/smartcare/';
+$config['base_url'] = 'http://localhost/smartcare/';
 $config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';

@@ -20,14 +20,12 @@
   <div class="collapse navbar-collapse" id="textoNavbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link" href="#">Serviços <span class="sr-only">(Página atual)</span></a>
+        <a class="nav-link" data-toggle="modal" data-target="#modalServico" href="">Serviços <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Fale Conosco</a>
+        <a class="nav-link" data-toggle="modal" data-target="#modalFaleConosco" href="">Fale Conosco</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sugestão</a>
-      </li>
+
     </ul>
 
 <!-- Button trigger modal -->
@@ -76,7 +74,64 @@
 </div>
 </div>
 <!-- Fim Modal login -->
+<!-- Inicio Modal Serviço -->
+<div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="modalServicoTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">Smartcare info</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body" style="max-height:500px; overflow-y: auto;">
 
+<p><b>Smartcare</b> é a aplicação voltada para atender os entes mais queridos e amados.
+Desenvolvido por aqueles que se preocupam com quem já se importou muito conosco.</p>
+<p> Atendemos todos os tipos de usuário
+oferecendo um serviço de qualidade e garantia inexistente no mercado.
+Nossa missão é assegurar a <b>segurança</b>, <b>bem estar</b> e <b>privacidade</b> de nossos clientes.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!--modal fale Conosco -->
+
+<div class="modal fade" id="modalFaleConosco" tabindex="-1" role="dialog" aria-labelledby="modalfaleConosco" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deixe Sua Mensagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Mensagem :</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Inicio Modal cadastro -->
 <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="modalCadastroTitle" aria-hidden="true">
@@ -125,7 +180,7 @@
 
 <p align="left">Logradouro*
 <input type="text" readonly placeholder="Informe o CEP para preenchimento automático" class="form-control" name="Logradouro" id="dlogradouro"  oninvalid="this.setCustomValidity('Informe o CEP para preenchimento automático da logradouro!')" onchange="this.setCustomValidity()" value="" required>
-</p> 
+</p>
 
 <p align="left">Número*
 <input type="text" placeholder="Informe o número" class="form-control" name="Numero">
