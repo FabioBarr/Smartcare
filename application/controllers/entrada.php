@@ -8,7 +8,7 @@ class Entrada extends CI_Controller {
         $this->load->model('refresh_model');
     }
 
-	public function index()
+	public function retorno()
 	{
 		
 		$data = array(

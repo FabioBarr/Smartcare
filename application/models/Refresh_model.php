@@ -41,7 +41,7 @@ class Refresh_model extends CI_Model{
 
             $LeituraEm = $row->LeituraEm;
             $Agora = date("Y-m-d H:i:s");
-            $_5MinutosAtras = date('Y-m-d H:i:s',strtotime('-5 minute',strtotime($Agora)));
+            $_5MinutosAtras = date('Y-m-d H:i:s',strtotime('-1 minute',strtotime($Agora)));
 
                 if($LeituraEm < $_5MinutosAtras && $row->Status == 1){
                     $this->db->query("UPDATE leituras_sensores SET Status = 0, DesativadoEm = '$now' WHERE idleitura_sensor = $row->idleitura_sensor");
