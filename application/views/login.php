@@ -260,13 +260,13 @@ echo $this->session->userdata('erro');
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <img class="d-block w-100 h-auto" src="<?php echo base_url('img/foto1.jgp') ?>" alt="First slide">
+        <img class="d-block w-100 h-auto" src="<?php echo base_url('img/foto1.jpg') ?>" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo base_url('img/foto2.jgp') ?>" alt="Second slide">
+      <img class="d-block w-100" src="<?php echo base_url('img/foto2.jpg') ?>" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo base_url('img/foto3.jgp') ?>" alt="Third slide">
+      <img class="d-block w-100" src="<?php echo base_url('img/foto3.jpg') ?>" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
