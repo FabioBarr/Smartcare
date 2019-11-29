@@ -104,9 +104,9 @@ interval = setInterval(leitura, 5000);
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <h6 class="collapse-header">Sensores</h6>
+            <a class="collapse-item" href="buttons.html">Regular</a>
+            <a class="collapse-item" href="cards.html">Configurações Gerais</a>
           </div>
         </div>
       </li>
@@ -115,15 +115,15 @@ interval = setInterval(leitura, 5000);
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilidades</span>
+          <span>Ferramentas</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <h6 class="collapse-header"></h6>
+            <a class="collapse-item" href="utilities-color.html">Relatorios</a>
+            <a class="collapse-item" href="utilities-border.html">Historicos</a>
+            <a class="collapse-item" href="utilities-animation.html"></a>
+            <a class="collapse-item" href="utilities-other.html"></a>
           </div>
         </div>
       </li>
@@ -140,13 +140,13 @@ interval = setInterval(leitura, 5000);
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Navegar</span>
+          <span>Análises</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Conta:</h6>
-            <a class="collapse-item" href="#">Editar</a>
-            <a class="collapse-item" href="#">Adicionar sensores</a>
+            <h6 class="collapse-header">Outros Pacientes</h6>
+            <a class="collapse-item" href="#">Editar Sensores</a>
+            <a class="collapse-item" href="#">Solicitar novos sensores</a>
             <div class="collapse-divider"></div>
 
           </div>
@@ -232,10 +232,6 @@ interval = setInterval(leitura, 5000);
           
           </div>
           <div class="col-sm">
-                 <button type="button" style="font-size:20px ;"class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                   <i class="fas fa-plus"></i> Sensor
-                   </button>
-
                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                      <div class="modal-dialog modal-dialog-centered" role="document">
                        <div class="modal-content">
